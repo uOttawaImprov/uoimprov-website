@@ -2,7 +2,7 @@
 import Header from "../components/Header.astro";
 import Fonts from "../components/util/Fonts.astro";
 
-import { Icon } from "astro-icon/components";
+import SocialButton from "../components/SocialButton.astro";
 
 import "../styles/global.css";
 ---
@@ -32,12 +32,27 @@ import "../styles/global.css";
       </div>
 
       <div class="basis-1/2 flex justify-center font-normal">
-        <div class="links p-3 border-solid rounded-lg bg-slate-50">
-          <h1 class="text-xl">Our Socials!</h1>
-          <a href="https://www.facebook.com/uottawaimprov" class="text-lg">
-            <Icon name="ic:baseline-discord" />
-            <p>Discord</p>
-          </a>
+        <div class="links p-6 border-solid rounded-lg bg-slate-50">
+          <SocialButton
+            text="Discord"
+            link="https://discord.gg/F4c7hQtEpC"
+            icon="ic:baseline-discord"
+            bodyClass="mb-3"
+            iconClass="text-[#7289da]"
+          />
+          <SocialButton
+            text="Instagram"
+            link="https://www.instagram.com/uottawaimprovclub/"
+            icon="mdi:instagram"
+            bodyClass="mb-3"
+            iconClass="bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045] text-white p-[.125em] rounded-lg"
+          />
+          <SocialButton
+            text="Facebook"
+            link="https://www.facebook.com/groups/uottawaimprov/"
+            icon="ic:baseline-facebook"
+            iconClass="text-[#1877f2]"
+          />
         </div>
       </div>
     </div>

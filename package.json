@@ -22,6 +22,7 @@
     "typescript": "^5.5.3"
   },
   "devDependencies": {
-    "@iconify-json/ic": "^1.1.17"
+    "@iconify-json/ic": "^1.1.17",
+    "@iconify-json/mdi": "^1.1.67"
   }
 }
