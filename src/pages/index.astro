@@ -1,6 +1,9 @@
 ---
 import Header from "../components/Header.astro";
 import Fonts from "../components/util/Fonts.astro";
+
+import { Icon } from "astro-icon/components";
+
 import "../styles/global.css";
 ---
 
@@ -15,12 +18,27 @@ import "../styles/global.css";
       <Header />
     </header>
     <div
-      class="flex justify-center items-center h-screen bowlby-one-regular big-bg"
+      class="full-screen-container
+        flex flex-row justify-center items-center
+        w-full h-screen
+        big-bg"
     >
-      <div class="title">
-        <h1 class="top">The uOttawa English</h1>
-        <h1 class="bottom">Improv</h1>
-        <h1 class="bottom">Club</h1>
+      <div class="basis-1/2 flex justify-center">
+        <div class="title bowlby-one-regular">
+          <h1 class="top">The uOttawa English</h1>
+          <h1 class="bottom">Improv</h1>
+          <h1 class="bottom">Club</h1>
+        </div>
+      </div>
+
+      <div class="basis-1/2 flex justify-center font-normal">
+        <div class="links p-3 border-solid rounded-lg bg-slate-50">
+          <h1 class="text-xl">Our Socials!</h1>
+          <a href="https://www.facebook.com/uottawaimprov" class="text-lg">
+            <Icon name="ic:baseline-discord" />
+            <p>Discord</p>
+          </a>
+        </div>
       </div>
     </div>
     <div class="flex justify-center">
@@ -34,9 +52,16 @@ import "../styles/global.css";
         </p>
       </div>
     </div>
+
     <style>
+      .full-screen-container {
+        padding-left: 15vw;
+        padding-right: 15vw;
+      }
+
       .title {
-        width: 100vw;
+        margin-right: 3rem;
+        margin-left: 1.5rem;
 
         h1 {
           margin-bottom: 0;
