@@ -1,0 +1,19 @@
+---
+const headerLinks = [
+  { name: "Home", url: "/" },
+  { name: "Links", url: "/links" },
+  { name: "Announcements", url: "/announcements" },
+];
+---
+
+<div
+  class="flex justify-center w-100 p-2 text-lg font-medium bg-slate-50 opacity-90"
+>
+  {
+    headerLinks.map(({ name, url }) => (
+      <a class="py-2 px-3 hover:bg-slate-200 cursor-pointer" href={url}>
+        <h3 class="text-black opacity-100">{name}</h3>
+      </a>
+    ))
+  }
+</div>
