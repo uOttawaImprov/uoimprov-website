@@ -1,0 +1,28 @@
+---
+import Fonts from "../components/util/Fonts.astro";
+import "../styles/global.css";
+
+import Button from "../components/Button.astro";
+---
+
+<html>
+  <head>
+    <title>404</title>
+    <Fonts />
+  </head>
+
+  <body>
+    <div
+      class="flex flex-col justify-center items-center w-screen h-screen text-center"
+    >
+      <h1 class="bowlby-one-regular text-3xl">
+        AHH!!! 404!!! <br /> PAGE NOT FOUND!!!
+      </h1>
+      <p class="font-normal">
+        I'm not sure what happened. <br />
+        Sorry you had to see me at my lowest like this.
+      </p>
+      <Button link="/" bodyClass="mt-4 mx-auto"> Back Home </Button>
+    </div>
+  </body>
+</html>
