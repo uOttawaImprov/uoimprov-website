@@ -5,6 +5,7 @@ import { Icon } from "astro-icon/components";
 
 import Button from "../components/Button.astro";
 import Bubble from "../components/Bubble.astro";
+import Footer from "../components/Footer.astro";
 
 import "../styles/global.css";
 ---
@@ -12,6 +13,7 @@ import "../styles/global.css";
 <html>
   <head>
     <title>Uottawa Improv</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <Fonts />
   </head>
 
@@ -20,12 +22,14 @@ import "../styles/global.css";
       <Header />
     </header>
     <div
-      class="full-screen-container
-        flex flex-row justify-center items-center
+      class="md:px-[15vw]
+        flex flex-col md:flex-row justify-center items-center
         w-full h-screen
         big-bg"
     >
-      <div class="basis-1/2 flex justify-center">
+      <div
+        class="md:basis-1/2 flex justify-center animate-loadIn mt-12 md:mt-0"
+      >
         <div class="title bowlby-one-regular">
           <h1 class="top">The uOttawa English</h1>
           <h1 class="bottom">Improv</h1>
@@ -33,8 +37,8 @@ import "../styles/global.css";
         </div>
       </div>
 
-      <div class="basis-1/2 flex justify-center font-normal">
-        <div class="links p-6 border-solid rounded-lg bg-slate-50">
+      <div class="md:basis-1/2 flex justify-center font-normal animate-loadIn">
+        <div class="links p-6 border-solid rounded-lg bg-slate-50 m-6">
           <Button link="https://discord.gg/F4c7hQtEpC" bodyClass="mb-3">
             <Icon
               size={40}
@@ -68,7 +72,7 @@ import "../styles/global.css";
     <div class="flex flex-col justify-center p-14">
       <Bubble
         title="What is Improv?"
-        outerClass="flex flex-col max-w-3xl mr-auto ml-24 mb-8 var-1"
+        outerClass="flex flex-col sm:max-w-3xl mr-auto sm:ml-24 mb-8 var-1"
       >
         <p class="font-normal">
           Improv (Improvised Theater) is a form of live theater with no script,
@@ -79,16 +83,16 @@ import "../styles/global.css";
         <Button link="/faq" bodyClass="mt-2 mx-auto"> More FAQ's </Button>
       </Bubble>
     </div>
+    <footer>
+      <Footer />
+    </footer>
 
     <style>
-      .full-screen-container {
-        padding-left: 15vw;
-        padding-right: 15vw;
-      }
-
       .title {
-        margin-right: 3rem;
-        margin-left: 1.5rem;
+        margin-right: 0rem;
+        margin-left: 0rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
 
         h1 {
           margin-bottom: 0;
@@ -97,16 +101,21 @@ import "../styles/global.css";
         }
 
         h1.top {
-          font-size: 10vw;
+          font-size: 7vw;
         }
         h1.bottom {
-          font-size: 21vw;
+          font-size: 17vw;
           text-align: right;
         }
       }
 
-      @media only screen and (min-width: 600px) {
+      @media only screen and (min-width: 640px) {
         .title {
+          margin-right: 3rem;
+          margin-left: 1.5rem;
+          padding-left: 0rem;
+          padding-right: 0rem;
+
           transform: rotate(-6deg);
           position: relative;
           z-index: 1;
@@ -124,16 +133,6 @@ import "../styles/global.css";
             font-size: 6.5rem;
           }
         }
-      }
-
-      .big-bg {
-        background: rgb(249, 159, 69);
-        background: linear-gradient(
-          45deg,
-          rgba(249, 159, 69, 1) 0%,
-          rgba(94, 238, 118, 1) 50%,
-          rgba(62, 228, 255, 1) 100%
-        );
       }
     </style>
   </body>

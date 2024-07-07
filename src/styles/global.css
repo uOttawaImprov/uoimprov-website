@@ -21,3 +21,13 @@ body {
   font-variation-settings:
     "wdth" 100;
 }
+
+.big-bg {
+  background: rgb(249, 159, 69);
+  background: linear-gradient(
+    45deg,
+    rgba(249, 159, 69, 1) 0%,
+    rgba(94, 238, 118, 1) 50%,
+    rgba(62, 228, 255, 1) 100%
+  );
+}
