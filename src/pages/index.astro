@@ -56,9 +56,18 @@ import "../styles/global.css";
         </div>
       </div>
     </div>
-    <div class="flex justify-center">
-      <div>
-        <h2 class="h-2">What is Improv?</h2>
+    <div class="flex flex-col justify-center p-14">
+      <div class="border-gradient var-1 p-4 max-w-4xl mr-auto ml-24 mb-8">
+        <h2 class="h2">What is Improv?</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus a
+          pulvinar tortor. Donec ut rhoncus dolor. Quisque scelerisque turpis
+          nisl, in posuere dui placerat eget. Integer libero ligula, consequat
+          eu pharetra quis, bibendum vel massa.
+        </p>
+      </div>
+      <div class="border-gradient var-2 p-4 max-w-4xl ml-auto mr-24">
+        <h2 class="h2">What is Improv?</h2>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus a
           pulvinar tortor. Donec ut rhoncus dolor. Quisque scelerisque turpis
@@ -122,6 +131,31 @@ import "../styles/global.css";
           rgba(94, 238, 118, 1) 50%,
           rgba(62, 228, 255, 1) 100%
         );
+      }
+
+      .border-gradient {
+        border: double 0.5em transparent;
+        border-radius: 30px;
+        background-origin: border-box;
+        background-clip: padding-box, border-box;
+      }
+
+      .var-1 {
+        background-image: linear-gradient(white, white),
+          linear-gradient(
+            45deg,
+            rgba(249, 159, 69, 1) 0%,
+            rgba(94, 238, 118, 1) 100%
+          );
+      }
+
+      .var-2 {
+        background-image: linear-gradient(white, white),
+          linear-gradient(
+            45deg,
+            rgba(94, 238, 118, 1) 0%,
+            rgba(62, 228, 255, 1) 100%
+          );
       }
     </style>
   </body>
