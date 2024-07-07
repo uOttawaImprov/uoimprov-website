@@ -1,0 +1,39 @@
+---
+interface Props {
+  title: string;
+  outerClass?: string;
+}
+
+const { title, outerClass = "" } = Astro.props;
+---
+
+<div class:list={["border-gradient p-4", outerClass]}>
+  <h2 class="text-lg bowlby-one-regular">{title}</h2>
+  <slot />
+  <style>
+    .border-gradient {
+      border: double 0.5em transparent;
+      border-radius: 30px;
+      background-origin: border-box;
+      background-clip: padding-box, border-box;
+    }
+
+    .var-1 {
+      background-image: linear-gradient(white, white),
+        linear-gradient(
+          135deg,
+          rgba(249, 159, 69, 1) 0%,
+          rgba(94, 238, 118, 1) 100%
+        );
+    }
+
+    .var-2 {
+      background-image: linear-gradient(white, white),
+        linear-gradient(
+          135deg,
+          rgba(94, 238, 118, 1) 0%,
+          rgba(62, 228, 255, 1) 100%
+        );
+    }
+  </style>
+</div>
