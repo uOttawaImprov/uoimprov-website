@@ -1,37 +1,56 @@
 ---
-import Header from "../../components/Header.astro";
-import Fonts from "../../components/util/Fonts.astro";
-import Footer from "../../components/Footer.astro";
+import Default from "../../layouts/Default.astro";
+import Bubble from "../../components/Bubble.astro";
 
 import "../../styles/global.css";
 
 const posts = await Astro.glob("./*.md");
 
 console.log(posts[0].frontmatter.title);
+
+function getRandomInt(max: number) {
+  return Math.floor(Math.random() * max) + 1;
+}
 ---
 
-<html>
-  <head>
-    <title>Uottawa Improv</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <Fonts />
-  </head>
-
-  <body>
-    <header class="fixed w-screen z-10">
-      <Header />
-    </header>
-    <div class="flex flex-col min-h-screen">
-      <div
-        class="flex flex-row justify-center items-center
-          w-full px-10 pt-24 pb-10
-          big-bg"
-      >
-        <h1 class="bowlby-one-regular text-3xl animate-loadIn">Announcments</h1>
-      </div>
+<Default pageTitle="uOImprov | Announcments">
+  <div class="flex flex-col min-h-screen">
+    <div
+      class="flex flex-row justify-center items-center
+        w-full px-10 pt-24 pb-10
+        big-bg"
+    >
+      <h1 class="bowlby-one-regular text-3xl animate-loadIn">Announcments</h1>
     </div>
-    <footer>
-      <Footer />
-    </footer>
-  </body>
-</html>
+
+    {
+      posts.map((post) => (
+        <Bubble
+          outerClass={"m-4 sm:mx-[15vw] var-" + getRandomInt(2)}
+          isButton={true}
+          link={post.url}
+        >
+          <div class="flex flex-row mb-2 sm:mb-0">
+            <img
+              src={post.frontmatter.img}
+              alt={post.frontmatter.title}
+              class="rounded-lg flex-wrap h-24 mr-2"
+            />
+            <div class="flex flex-col justify-between sm:justify-start">
+              <h2 class="bowlby-one-regular text-xl">
+                {post.frontmatter.title}
+              </h2>
+              <p class="font-normal text-sm ml-0 sm:ml-4">
+                {post.frontmatter.date}
+              </p>
+              <p class="font-medium hidden sm:block mt-1">
+                {post.frontmatter.desc}
+              </p>
+            </div>
+          </div>
+          <p class="font-medium block sm:hidden">{post.frontmatter.desc}</p>
+        </Bubble>
+      ))
+    }
+  </div>
+</Default>

@@ -1,0 +1,31 @@
+---
+import Header from "../components/Header.astro";
+import Fonts from "../components/util/Fonts.astro";
+import Footer from "../components/Footer.astro";
+
+import "../styles/global.css";
+
+interface Props {
+  pageTitle: string;
+}
+
+const { pageTitle } = Astro.props;
+---
+
+<html>
+  <head>
+    <title>{pageTitle}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <Fonts />
+  </head>
+
+  <body>
+    <header class="fixed w-screen z-10">
+      <Header />
+    </header>
+    <slot />
+    <footer>
+      <Footer />
+    </footer>
+  </body>
+</html>

@@ -1,6 +1,5 @@
 ---
-import Header from "../components/Header.astro";
-import Fonts from "../components/util/Fonts.astro";
+import Default from "../layouts/Default.astro";
 import { Icon } from "astro-icon/components";
 
 import Button from "../components/Button.astro";
@@ -10,130 +9,112 @@ import Footer from "../components/Footer.astro";
 import "../styles/global.css";
 ---
 
-<html>
-  <head>
-    <title>Uottawa Improv</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <Fonts />
-  </head>
-
-  <body>
-    <header class="fixed w-screen z-10">
-      <Header />
-    </header>
-    <div
-      class="md:px-[15vw]
-        flex flex-col md:flex-row justify-center items-center
-        w-full h-screen
-        big-bg"
-    >
-      <div
-        class="md:basis-1/2 flex justify-center animate-loadIn mt-12 md:mt-0"
-      >
-        <div class="title bowlby-one-regular">
-          <h1 class="top">The uOttawa English</h1>
-          <h1 class="bottom">Improv</h1>
-          <h1 class="bottom">Club</h1>
-        </div>
-      </div>
-
-      <div class="md:basis-1/2 flex justify-center font-normal animate-loadIn">
-        <div class="links p-6 border-solid rounded-lg bg-slate-50 m-6">
-          <Button link="https://discord.gg/F4c7hQtEpC" bodyClass="mb-3">
-            <Icon
-              size={40}
-              name="ic:baseline-discord"
-              class="mr-6 text-[#7289da]"
-            />
-            Discord
-          </Button>
-          <Button
-            link="https://www.instagram.com/uottawaimprovclub/"
-            bodyClass="mb-3"
-          >
-            <Icon
-              size={40}
-              name="mdi:instagram"
-              class="mr-6 bg-gradient-to-b from-[#833ab4] via-[#fd1d1d] to-[#fcb045] text-white p-[.125em] rounded-lg"
-            />
-            Instagram
-          </Button>
-          <Button link="https://www.facebook.com/groups/uottawaimprov/">
-            <Icon
-              size={40}
-              name="ic:baseline-facebook"
-              class="mr-6 text-[#1877f2]"
-            />
-            Facebook
-          </Button>
-        </div>
+<Default pageTitle="uOttawa Improv Club">
+  <div
+    class="md:px-[15vw]
+      flex flex-col md:flex-row justify-center items-center
+      w-full h-screen
+      big-bg"
+  >
+    <div class="md:basis-1/2 flex justify-center animate-loadIn mt-12 md:mt-0">
+      <div class="title bowlby-one-regular">
+        <h1 class="top">The uOttawa English</h1>
+        <h1 class="bottom">Improv</h1>
+        <h1 class="bottom">Club</h1>
       </div>
     </div>
-    <div class="flex flex-col justify-center p-14">
-      <Bubble
-        title="What is Improv?"
-        outerClass="flex flex-col sm:max-w-3xl mr-auto sm:ml-24 mb-8 var-1"
-      >
-        <p class="font-normal">
-          Improv (Improvised Theater) is a form of live theater with no script,
-          it's up to the actors to make the story! It sounds terrifying but it's
-          actaully a very easy form of theater where you can improve your acting
-          skills, make friends, and have fun!
-        </p>
-        <Button link="/faq" bodyClass="mt-2 mx-auto"> More FAQ's </Button>
-      </Bubble>
-    </div>
-    <footer>
-      <Footer />
-    </footer>
 
-    <style>
+    <div class="md:basis-1/2 flex justify-center font-normal animate-loadIn">
+      <div class="links p-6 border-solid rounded-lg bg-slate-50 m-6">
+        <Button link="https://discord.gg/F4c7hQtEpC" bodyClass="mb-3">
+          <Icon
+            size={40}
+            name="ic:baseline-discord"
+            class="mr-6 text-[#7289da]"
+          />
+          Discord
+        </Button>
+        <Button
+          link="https://www.instagram.com/uottawaimprovclub/"
+          bodyClass="mb-3"
+        >
+          <Icon
+            size={40}
+            name="mdi:instagram"
+            class="mr-6 bg-gradient-to-b from-[#833ab4] via-[#fd1d1d] to-[#fcb045] text-white p-[.125em] rounded-lg"
+          />
+          Instagram
+        </Button>
+        <Button link="https://www.facebook.com/groups/uottawaimprov/">
+          <Icon
+            size={40}
+            name="ic:baseline-facebook"
+            class="mr-6 text-[#1877f2]"
+          />
+          Facebook
+        </Button>
+      </div>
+    </div>
+  </div>
+  <div class="flex flex-col justify-center p-14">
+    <Bubble outerClass="flex flex-col sm:max-w-3xl mr-auto sm:ml-24 mb-8 var-1">
+      <h2 class="text-lg bowlby-one-regular">What Is Improv?</h2>
+      <p class="font-normal">
+        Improv (Improvised Theater) is a form of live theater with no script,
+        it's up to the actors to make the story! It sounds terrifying but it's
+        actaully a very easy form of theater where you can improve your acting
+        skills, make friends, and have fun!
+      </p>
+      <Button link="/faq" bodyClass="mt-2 mx-auto"> More FAQ's </Button>
+    </Bubble>
+  </div>
+
+  <style>
+    .title {
+      margin-right: 0rem;
+      margin-left: 0rem;
+      padding-left: 2rem;
+      padding-right: 2rem;
+
+      h1 {
+        margin-bottom: 0;
+        line-height: 1;
+        word-spacing: 100vw;
+      }
+
+      h1.top {
+        font-size: 7vw;
+      }
+      h1.bottom {
+        font-size: 17vw;
+        text-align: right;
+      }
+    }
+
+    @media only screen and (min-width: 640px) {
       .title {
-        margin-right: 0rem;
-        margin-left: 0rem;
-        padding-left: 2rem;
-        padding-right: 2rem;
+        margin-right: 3rem;
+        margin-left: 1.5rem;
+        padding-left: 0rem;
+        padding-right: 0rem;
+
+        transform: rotate(-6deg);
+        position: relative;
+        z-index: 1;
+        width: 26rem;
 
         h1 {
           margin-bottom: 0;
           line-height: 1;
-          word-spacing: 100vw;
         }
 
         h1.top {
-          font-size: 7vw;
+          font-size: 3.5rem;
         }
         h1.bottom {
-          font-size: 17vw;
-          text-align: right;
+          font-size: 6.5rem;
         }
       }
-
-      @media only screen and (min-width: 640px) {
-        .title {
-          margin-right: 3rem;
-          margin-left: 1.5rem;
-          padding-left: 0rem;
-          padding-right: 0rem;
-
-          transform: rotate(-6deg);
-          position: relative;
-          z-index: 1;
-          width: 26rem;
-
-          h1 {
-            margin-bottom: 0;
-            line-height: 1;
-          }
-
-          h1.top {
-            font-size: 3.5rem;
-          }
-          h1.bottom {
-            font-size: 6.5rem;
-          }
-        }
-      }
-    </style>
-  </body>
-</html>
+    }
+  </style>
+</Default>

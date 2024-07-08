@@ -1,0 +1,46 @@
+---
+import Default from "./Default.astro";
+
+const { frontmatter } = Astro.props;
+---
+
+<Default pageTitle={"uOImprov | " + frontmatter.title}>
+  <div class="min-h-screen flex flex-col items-center">
+    <div
+      class="flex flex-row justify-center items-center
+        w-full px-10 pt-24 pb-10
+        big-bg"
+    >
+      <h1 class="bowlby-one-regular text-3xl animate-loadIn">
+        {frontmatter.title}
+      </h1>
+    </div>
+    <div class="w-[640px] markdown">
+      <slot />
+    </div>
+  </div>
+  <style is:global>
+    .markdown {
+      h1,
+      h2,
+      h3 {
+        font-family: "Bowlby One", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      h1 {
+        font-size: 2rem;
+        @apply border-b-2 border-solid border-black;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      h3 {
+        font-size: 1.25rem;
+      }
+    }
+  </style>
+</Default>

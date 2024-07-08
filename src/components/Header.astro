@@ -4,6 +4,7 @@ const headerLinks = [
   { name: "Announcements", url: "/announcements" },
   { name: "FAQ", url: "/faq" },
   { name: "Contact", url: "/contact" },
+  { name: "About", url: "/about" },
 ];
 ---
 
@@ -13,7 +14,7 @@ const headerLinks = [
   {
     headerLinks.map(({ name, url }) => (
       <a
-        class="py-2 px-4 cursor-pointer rounded-lg
+        class="py-2 px-4 cursor-pointer rounded-lg encode-sans-300 
         transition duration-200 ease-in-out hover:-translate-y-1 hover:shadow-lg hover:bg-slate-50/100"
         href={url}
       >

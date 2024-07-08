@@ -1,15 +1,32 @@
 ---
 interface Props {
-  title: string;
   outerClass?: string;
+  isButton?: boolean;
+  link?: string;
 }
 
-const { title, outerClass = "" } = Astro.props;
+const { outerClass = "", isButton = false, link = "" } = Astro.props;
 ---
 
-<div class:list={["border-gradient p-4", outerClass]}>
-  <h2 class="text-lg bowlby-one-regular">{title}</h2>
-  <slot />
+<div>
+  {
+    isButton ? (
+      <a href={link}>
+        <div
+          class:list={[
+            "border-gradient p-4 transition duration-200 ease-in-out hover:-translate-y-1 shadow-md hover:shadow-lg hover:bg-cyan-50",
+            outerClass,
+          ]}
+        >
+          <slot />
+        </div>
+      </a>
+    ) : (
+      <div class:list={["border-gradient p-4 shadow-md", outerClass]}>
+        <slot />
+      </div>
+    )
+  }
   <style>
     .border-gradient {
       border: double 0.5em transparent;
