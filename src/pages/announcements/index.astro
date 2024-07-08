@@ -6,8 +6,6 @@ import "../../styles/global.css";
 
 const posts = await Astro.glob("./*.md");
 
-console.log(posts[0].frontmatter.title);
-
 function getRandomInt(max: number) {
   return Math.floor(Math.random() * max) + 1;
 }

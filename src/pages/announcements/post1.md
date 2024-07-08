@@ -2,7 +2,7 @@
 title: Launch of this website!
 date: "2024-07-08"
 desc: Putting this as an announcement on the website seems redundant...
-img: /images/test.png
+img: /images/the-website.png
 layout: ../../layouts/Announcements.astro
 ---
 
