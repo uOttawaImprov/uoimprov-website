@@ -1,4 +1,6 @@
 ---
+import { Icon } from "astro-icon/components";
+
 const headerLinks = [
   { name: "Home", url: "/" },
   { name: "Announcements", url: "/announcements" },
@@ -8,13 +10,94 @@ const headerLinks = [
 ];
 ---
 
+<script>
+  let menuOpen = false;
+
+  const menuButton = document.querySelector("#menuButton");
+  const menu = document.querySelector("#menu");
+
+  menuButton?.addEventListener("click", () => {
+    if (!menuOpen) {
+      if (menu?.classList.contains("hidden")) menu?.classList.remove("hidden");
+
+      menu?.classList.add("fade-in-menu");
+      menu?.classList.remove("fade-out-menu");
+    } else {
+      menu?.classList.add("fade-out-menu");
+      menu?.classList.remove("fade-in-menu");
+    }
+    menuOpen = !menuOpen;
+  });
+</script>
+
+<style>
+  .fade-in-menu {
+    animation: fadeInMenu 0.3s ease-in-out;
+    animation-fill-mode: forwards;
+  }
+
+  .fade-out-menu {
+    animation: fadeOutMenu 0.3s ease-in-out;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes fadeInMenu {
+    from {
+      display: none;
+      opacity: 0;
+      transform: translateY(-8em);
+    }
+    to {
+      display: flex;
+      opacity: 1;
+      transform: translateY(0em);
+    }
+  }
+
+  @keyframes fadeOutMenu {
+    from {
+      display: flex;
+      opacity: 1;
+      transform: translateY(0em);
+    }
+    to {
+      display: none;
+      opacity: 0;
+      transform: translateY(-8em);
+    }
+  }
+</style>
+
 <div
-  class="flex justify-center w-100 pt-3 pb-2 text-lg font-medium bg-slate-50/90"
+  class="z-20 relative flex justify-center w-100 p-2 text-lg font-medium bg-slate-50/100 sm:bg-slate-50/90"
+>
+  <img src="favicon.ico" class="h-11 w-auto mr-auto ml-2" />
+  {
+    headerLinks.map(({ name, url }) => (
+      <a
+        class="py-2 px-4 cursor-pointer rounded-lg encode-sans-300 hidden sm:block
+        transition duration-200 ease-in-out hover:-translate-y-1 hover:shadow-lg hover:bg-slate-50/100"
+        href={url}
+      >
+        <h3 class="text-black opacity-100">{name}</h3>
+      </a>
+    ))
+  }
+  <button
+    class="visible sm:invisible text-black w-auto ml-auto mt-0.5 mr-2"
+    id="menuButton"
+  >
+    <Icon size={40} name="mdi:menu" class="" />
+  </button>
+</div>
+<div
+  id="menu"
+  class="z-10 relative fade-in-menu hidden flex-col w-100 p-2 pt-0 text-lg font-medium bg-slate-50/90"
 >
   {
     headerLinks.map(({ name, url }) => (
       <a
-        class="py-2 px-4 cursor-pointer rounded-lg encode-sans-300 
+        class="py-2 px-4 cursor-pointer rounded-lg encode-sans-300 sm:hidden
         transition duration-200 ease-in-out hover:-translate-y-1 hover:shadow-lg hover:bg-slate-50/100"
         href={url}
       >
