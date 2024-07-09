@@ -10,52 +10,57 @@ import "../styles/global.css";
 ---
 
 <Default pageTitle="uOttawa Improv Club">
-  <div
-    class="lg:px-[15vw]
-      flex flex-col lg:flex-row justify-center items-center
-      w-full h-screen
-      big-bg"
-  >
-    <div class="lg:basis-1/2 flex justify-center animate-loadIn mt-12 lg:mt-0">
-      <div class="title bowlby-one-regular">
-        <h1 class="top">The uOttawa English</h1>
-        <h1 class="bottom">Improv</h1>
-        <h1 class="bottom">Club</h1>
+  <div class="">
+    <div
+      class="lg:px-[15vw]
+        flex flex-col lg:flex-row justify-center items-center
+        w-full h-screen
+        big-bg bg-img"
+    >
+      <div
+        class="lg:basis-1/2 flex justify-center animate-loadIn mt-12 lg:mt-0"
+      >
+        <div class="title bowlby-one-regular">
+          <h1 class="top">The uOttawa English</h1>
+          <h1 class="bottom">Improv</h1>
+          <h1 class="bottom">Club</h1>
+        </div>
       </div>
-    </div>
 
-    <div class="lg:basis-1/2 flex justify-center font-normal animate-loadIn">
-      <div class="links p-6 border-solid rounded-lg bg-slate-50 m-6">
-        <Button link="https://discord.gg/F4c7hQtEpC" bodyClass="mb-3">
-          <Icon
-            size={40}
-            name="ic:baseline-discord"
-            class="mr-6 text-[#7289da]"
-          />
-          Discord
-        </Button>
-        <Button
-          link="https://www.instagram.com/uottawaimprovclub/"
-          bodyClass="mb-3"
-        >
-          <Icon
-            size={40}
-            name="mdi:instagram"
-            class="mr-6 bg-gradient-to-b from-[#833ab4] via-[#fd1d1d] to-[#fcb045] text-white p-[.125em] rounded-lg"
-          />
-          Instagram
-        </Button>
-        <Button link="https://www.facebook.com/groups/uottawaimprov/">
-          <Icon
-            size={40}
-            name="ic:baseline-facebook"
-            class="mr-6 text-[#1877f2]"
-          />
-          Facebook
-        </Button>
+      <div class="lg:basis-1/2 flex justify-center font-normal animate-loadIn">
+        <div class="links p-6 border-solid rounded-lg bg-slate-50 m-6">
+          <Button link="https://discord.gg/F4c7hQtEpC" bodyClass="mb-3">
+            <Icon
+              size={40}
+              name="ic:baseline-discord"
+              class="mr-6 text-[#7289da]"
+            />
+            Discord
+          </Button>
+          <Button
+            link="https://www.instagram.com/uottawaimprovclub/"
+            bodyClass="mb-3"
+          >
+            <Icon
+              size={40}
+              name="mdi:instagram"
+              class="mr-6 bg-gradient-to-b from-[#833ab4] via-[#fd1d1d] to-[#fcb045] text-white p-[.125em] rounded-lg"
+            />
+            Instagram
+          </Button>
+          <Button link="https://www.facebook.com/groups/uottawaimprov/">
+            <Icon
+              size={40}
+              name="ic:baseline-facebook"
+              class="mr-6 text-[#1877f2]"
+            />
+            Facebook
+          </Button>
+        </div>
       </div>
     </div>
   </div>
+
   <div class="flex flex-col justify-center p-14">
     <Bubble outerClass="flex flex-col sm:max-w-3xl mr-auto sm:ml-24 mb-8 var-1">
       <h2 class="text-lg bowlby-one-regular">What Is Improv?</h2>
@@ -70,6 +75,19 @@ import "../styles/global.css";
   </div>
 
   <style>
+    .bg-img {
+      background: linear-gradient(
+          45deg,
+          rgba(249, 159, 69, 1) 0%,
+          rgba(94, 238, 118, 1) 50%,
+          rgba(62, 228, 255, 1) 100%
+        ),
+        url("images/background-mono.png");
+      background-size: cover;
+      background-position: center;
+      background-blend-mode: multiply;
+    }
+
     .title {
       margin-right: 0rem;
       margin-left: 0rem;
@@ -99,8 +117,6 @@ import "../styles/global.css";
         padding-right: 0rem;
 
         transform: rotate(-6deg);
-        position: relative;
-        z-index: 1;
         width: 26rem;
 
         h1 {
