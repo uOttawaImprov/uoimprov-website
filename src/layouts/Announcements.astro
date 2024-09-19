@@ -1,16 +1,13 @@
 ---
 import Default from "./Default.astro";
+import Title from "./Title.astro";
 
 const { frontmatter } = Astro.props;
 ---
 
 <Default pageTitle={"uOImprov | " + frontmatter.title}>
   <div class="min-h-screen flex flex-col items-center">
-    <div
-      class="flex justify-center
-        w-full px-10 pt-24 pb-10
-        big-bg"
-    >
+    <Title>
       <div
         class="flex flex-col sm:flex-row justify-center items-center sm:max-w-4xl"
       >
@@ -27,7 +24,7 @@ const { frontmatter } = Astro.props;
           <p>{frontmatter.date}</p>
         </div>
       </div>
-    </div>
+    </Title>
     <div class="mt-4 px-6 sm:w-[620px] lg:w-[800px] markdown">
       <slot />
     </div>
