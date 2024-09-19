@@ -14,4 +14,4 @@ Welcome to the official website for the Improv Club! We're going to be using thi
 
 What do you mean why? this is an essential part to our clubs continued success 
 
-- Reid, Co-President
+- Thea, Co-President
