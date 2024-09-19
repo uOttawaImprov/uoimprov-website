@@ -7,6 +7,13 @@ import "../../styles/global.css";
 
 const posts = await Astro.glob("./*.md");
 
+posts.sort((a, b) => {
+  return (
+    new Date(b.frontmatter.date).getTime() -
+    new Date(a.frontmatter.date).getTime()
+  );
+});
+
 function getRandomInt(max: number) {
   return Math.floor(Math.random() * max) + 1;
 }
@@ -21,7 +28,7 @@ function getRandomInt(max: number) {
     {
       posts.map((post) => (
         <Bubble
-          outerClass={"m-4 sm:mx-[15vw] var-" + getRandomInt(2)}
+          outerClass={"m-4 mb-0 sm:mx-[15vw] var-" + getRandomInt(2)}
           isButton={true}
           link={post.url}
         >
