@@ -1,9 +1,9 @@
 ---
-import Default from "../../layouts/Default.astro";
-import Bubble from "../../components/Bubble.astro";
-import Title from "../../layouts/Title.astro";
+import Default from "@layouts/Default.astro";
+import Bubble from "@components/Bubble.astro";
+import Title from "@layouts/Title.astro";
 
-import "../../styles/global.css";
+import "@styles/global.css";
 
 const posts = await Astro.glob("./*.md");
 

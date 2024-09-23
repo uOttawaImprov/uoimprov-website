@@ -1,8 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
 
-import favicon from "../favicon.ico";
-
 const headerLinks = [
   { name: "Home", url: "/" },
   { name: "Announcements", url: "/announcements" },
@@ -73,7 +71,7 @@ const headerLinks = [
 <div
   class="z-20 relative flex justify-center w-100 p-2 text-lg font-medium bg-slate-50/100 sm:bg-slate-50/90"
 >
-  <img src={favicon} class="h-11 w-auto mr-auto ml-2" />
+  <img src="favicon.ico" class="h-11 w-auto mr-auto ml-2" />
   {
     headerLinks.map(({ name, url }) => (
       <a
