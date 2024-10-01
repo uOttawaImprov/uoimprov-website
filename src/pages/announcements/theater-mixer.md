@@ -4,6 +4,7 @@ date: "2024-10-1"
 desc: We are doing a mixer event with many other uOttawa and Carleton theater clubs!
 img: "/src/assets/images/mixer.jpg"
 layout: ../../layouts/specialized-layouts/TheaterMixer.astro
+hidden: true
 ---
 
 # We Are Doing A Mixer!
