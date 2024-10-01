@@ -2,7 +2,7 @@
 title: Theater Mixer Event
 date: "2024-09-19"
 desc: We are doing a mixer event with multiple other theater clubs in the ottawa area!
-img: /images/the-website.png
+img: "/src/assets/images/the-website.png"
 layout: ../../layouts/specialized-layouts/TheaterMixer.astro
 ---
 

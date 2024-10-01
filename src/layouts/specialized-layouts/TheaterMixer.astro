@@ -2,8 +2,10 @@
 import Default from "../Default.astro";
 import Title from "../Title.astro";
 import Bubble from "../../components/Bubble.astro";
+import { Image } from "astro:assets";
 
 const { frontmatter } = Astro.props;
+const images = import.meta.glob<{ default: ImageMetadata }>("@assets/images/*");
 ---
 
 <Default pageTitle={"uOImprov | " + frontmatter.title}>
@@ -12,8 +14,8 @@ const { frontmatter } = Astro.props;
       <div
         class="flex flex-col sm:flex-row justify-center items-center sm:max-w-4xl"
       >
-        <img
-          src={frontmatter.img}
+        <Image
+          src={images[frontmatter.img]()}
           alt={frontmatter.title}
           class="rounded-lg flex-wrap w-5/6 max-w-60 sm:w-60 mr-4 mb-3 sm:mb-0"
         />
