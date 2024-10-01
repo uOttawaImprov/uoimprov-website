@@ -10,13 +10,18 @@ import { Image } from "astro:assets";
 const images = import.meta.glob<{ default: ImageMetadata }>(
   "src/assets/images/*"
 );
-const posts = await Astro.glob("./*.md");
+const unfilteredPosts = await Astro.glob("./*.md");
 
-posts.sort((a, b) => {
+unfilteredPosts.sort((a, b) => {
   return (
     new Date(b.frontmatter.date).getTime() -
     new Date(a.frontmatter.date).getTime()
   );
+});
+
+const posts = unfilteredPosts.filter((post) => {
+  console.log(post.frontmatter.hidden);
+  return !post.frontmatter.hidden;
 });
 
 function getRandomInt(max: number) {
