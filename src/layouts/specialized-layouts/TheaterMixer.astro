@@ -3,11 +3,14 @@ import Default from "../Default.astro";
 import Title from "../Title.astro";
 import Bubble from "../../components/Bubble.astro";
 import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
 
 import "@styles/markdown.css";
 
 const { frontmatter } = Astro.props;
-const images = import.meta.glob<{ default: ImageMetadata }>("@assets/images/*");
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "src/assets/images/*"
+);
 ---
 
 <Default pageTitle={"uOImprov | " + frontmatter.title}>
