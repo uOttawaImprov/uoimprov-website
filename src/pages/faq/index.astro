@@ -1,13 +1,65 @@
 ---
-import Default from "../../layouts/Default.astro";
-import Title from "../../layouts/Title.astro";
-import Bubble from "../../components/Bubble.astro";
+import Default from "@layouts/Default.astro";
+import Title from "@layouts/Title.astro";
+import Bubble from "@components/Bubble.astro";
 
-import "../../styles/global.css";
+import { socials } from "@src/consts.ts";
+
+import "@styles/global.css";
 ---
 
-<Default pageTitle="uOImprov | Announcments">
-  <Title>
-    <h1 class="bowlby-one-regular text-3xl animate-loadIn">Faq</h1>
-  </Title>
+<script></script>
+
+<Default pageTitle="OImprov | FAQ">
+  <div class="flex flex-col min-h-screen">
+    <Title>
+      <h1 class="bowlby-one-regular text-3xl animate-loadIn">FAQ</h1>
+    </Title>
+    <button class="bubbleFAQ m-4 md:mr-[13vw] md:ml-[17vw] text-left">
+      <Bubble outerClass="var-1">
+        <h2 class="text-lg bowlby-one-regular">What is Improv?</h2>
+        <p class="textFAQ font-normal">
+          Improv (Improvised Theater) is a form of live theater with no script,
+          it's up to the actors to make the story! It sounds terrifying but it's
+          actaully a very easy form of theater where you can improve your acting
+          skills, make friends, and have fun!
+        </p>
+      </Bubble>
+    </button>
+
+    <Bubble outerClass="m-4 md:mx-[15vw] var-2">
+      <h2 class="text-lg bowlby-one-regular">What do you guys do?</h2>
+      <p class="font-normal">
+        Our club runs regular improv jams on campus, we use this time to run
+        scenes, play some improv games, and chat about improv. These jams are
+        open to everyone!
+      </p>
+      <p class="font-normal mt-1">
+        We also regularly perform in shows that we put on ourselves, and also in
+        shows put on by other improv companies around ottawa. Keep Updated on
+        our Instagram and announcements page for these!
+      </p>
+    </Bubble>
+
+    <Bubble outerClass="m-4 md:mr-[17vw] md:ml-[13vw] var-1">
+      <h2 class="text-lg bowlby-one-regular">When and where?</h2>
+      <p class="font-normal">
+        Check out our <a href={socials["instagram"]}>Instagram</a> and <a
+          href={socials["discord"]}>Discord</a
+        > for the most up to date information on our jams and events!
+      </p>
+    </Bubble>
+  </div>
 </Default>
+
+<style>
+  a {
+    color: rgb(45, 107, 240);
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: rgb(45, 107, 240);
+    text-decoration: underline;
+  }
+</style>

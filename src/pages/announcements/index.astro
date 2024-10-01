@@ -1,10 +1,23 @@
 ---
-import Default from "../../layouts/Default.astro";
-import Bubble from "../../components/Bubble.astro";
+import Default from "@layouts/Default.astro";
+import Bubble from "@components/Bubble.astro";
+import Title from "@layouts/Title.astro";
+import type { ImageMetadata } from "astro";
 
-import "../../styles/global.css";
+import "@styles/global.css";
+import { Image } from "astro:assets";
 
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "src/assets/images/*"
+);
 const posts = await Astro.glob("./*.md");
+
+posts.sort((a, b) => {
+  return (
+    new Date(b.frontmatter.date).getTime() -
+    new Date(a.frontmatter.date).getTime()
+  );
+});
 
 function getRandomInt(max: number) {
   return Math.floor(Math.random() * max) + 1;
@@ -13,26 +26,22 @@ function getRandomInt(max: number) {
 
 <Default pageTitle="uOImprov | Announcments">
   <div class="flex flex-col min-h-screen">
-    <div
-      class="flex flex-row justify-center items-center
-        w-full px-10 pt-24 pb-10
-        big-bg"
-    >
+    <Title>
       <h1 class="bowlby-one-regular text-3xl animate-loadIn">Announcments</h1>
-    </div>
+    </Title>
 
     {
       posts.map((post) => (
         <Bubble
-          outerClass={"m-4 sm:mx-[15vw] var-" + getRandomInt(2)}
+          outerClass={"m-4 mb-0 sm:mx-[15vw] var-" + getRandomInt(2)}
           isButton={true}
           link={post.url}
         >
           <div class="flex flex-row mb-2 sm:mb-0">
-            <img
-              src={post.frontmatter.img}
+            <Image
+              src={images[post.frontmatter.img]()}
               alt={post.frontmatter.title}
-              class="rounded-lg flex-wrap h-24 mr-2"
+              class="rounded-lg flex-wrap h-24 w-auto mr-2"
             />
             <div class="flex flex-col justify-between sm:justify-start">
               <h2 class="bowlby-one-regular text-xl">
