@@ -20,7 +20,6 @@ unfilteredPosts.sort((a, b) => {
 });
 
 const posts = unfilteredPosts.filter((post) => {
-  console.log(post.frontmatter.hidden);
   return !post.frontmatter.hidden;
 });
 

@@ -3,7 +3,7 @@ title: Launch of This Website
 date: "2024-08-07"
 desc: Putting this as an announcement on the website seems redundant...
 img: "/src/assets/images/the-website.png"
-layout: ../../layouts/Announcements.astro
+layout: "@layouts/announcements/Basic.astro"
 hidden: false
 ---
 

@@ -3,20 +3,20 @@ title: uOttawa x Carleton Theater Mixer
 date: "2024-10-1"
 desc: We are doing a mixer event with many other uOttawa and Carleton theater clubs!
 img: "/src/assets/images/mixer.jpg"
-layout: ../../layouts/specialized-layouts/TheaterMixer.astro
-hidden: true
+layout: "@layouts/announcements/TheaterMixer.astro"
+hidden: false
 ---
 
 # We Are Doing A Mixer!
 
 In a partnership between us and 
-[*The uOttawa Theater Club*](https://www.instagram.com/uottawatheatreclub/), 
+[*The uOttawa Theatre Club*](https://www.instagram.com/uottawatheatreclub/), 
 [*Sock 'n' Buskin*](https://www.instagram.com/snbtheatre/), 
 [*The Carleton Improv Club*](https://instagram.com/carletonimprov/), 
 [*The Glee Gees*](https://instagram.com/gleegees/), 
 [*Carleton Musical Theatre Society*](https://www.instagram.com/carletonmts), 
 and [*Unity For Action*](https://www.instagram.com/unityforaction/)
-we are proud to present the uOttawa x Carleton Theater Mixer! Join us for an evening of performances, an open mic, networking, and fun!
+we are proud to present the uOttawa x Carleton Theatre Mixer! Join us for an evening of performances, an open mic, networking, and fun!
 
 # The Details
 **Where**: [The Rainbow Bistro](https://therainbow.ca/), located at *76 Murray St* in the Byward
