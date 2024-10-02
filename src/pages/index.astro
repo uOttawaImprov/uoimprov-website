@@ -1,11 +1,17 @@
 ---
 import Default from "@layouts/Default.astro";
 import { Icon } from "astro-icon/components";
-
 import Button from "@components/Button.astro";
 import Bubble from "@components/Bubble.astro";
+import { Image } from "astro:assets";
+import { postFilter } from "@components/util/AnouncementGlob.ts";
 
 import "@styles/global.css";
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "src/assets/images/*"
+);
+const recentPost = postFilter(await Astro.glob("./announcements/*.md"))[0];
 ---
 
 <Default pageTitle="uOttawa Improv Club">
@@ -60,12 +66,34 @@ import "@styles/global.css";
     </div>
   </div>
 
-  <div class="flex flex-col justify-center p-14">
-    <!-- <Bubble outerClass="flex flex-col mr-auto sm:ml-24 sm:mr-48 mb-8 var-1">
+  <div class="flex flex-col justify-center p-10">
+    <Bubble outerClass="flex flex-col mr-auto sm:ml-24 sm:mr-48 mb-8 var-1">
       <h2 class="text-lg bowlby-one-regular">Recent Announcements</h2>
-
-      <Button link="/faq" bodyClass="mt-2 mx-auto"> More Announcements </Button>
-    </Bubble> -->
+      <a
+        class="rounded-lg p-4 transition duration-200 ease-in-out hover:-translate-y-1 shadow-md hover:shadow-lg hover:bg-cyan-50"
+        href={recentPost.url}
+      >
+        <div class="flex flex-row mb-2 sm:mb-0">
+          <Image
+            src={images[recentPost.frontmatter.img]()}
+            alt={recentPost.frontmatter.title}
+            class="rounded-lg flex-wrap h-24 w-auto mr-2"
+          />
+          <div class="flex flex-col justify-between sm:justify-start">
+            <h2 class="bowlby-one-regular text-xl">
+              {recentPost.frontmatter.title}
+            </h2>
+            <p class="font-normal text-sm ml-0 sm:ml-4">
+              {recentPost.frontmatter.date}
+            </p>
+            <p class="font-medium hidden sm:block mt-1">
+              {recentPost.frontmatter.desc}
+            </p>
+          </div>
+        </div>
+        <p class="font-medium block sm:hidden">{recentPost.frontmatter.desc}</p>
+      </a>
+    </Bubble>
     <Bubble outerClass="flex flex-col mr-auto sm:mr-24 sm:ml-48 mb-8 var-1">
       <h2 class="text-lg bowlby-one-regular">What Is Improv?</h2>
       <p class="font-normal">
@@ -77,64 +105,64 @@ import "@styles/global.css";
       <Button link="/faq" bodyClass="mt-2 mx-auto"> More FAQ's </Button>
     </Bubble>
   </div>
+</Default>
 
-  <style>
-    .bg-img {
-      background: linear-gradient(
-          45deg,
-          rgba(249, 159, 69, 1) 0%,
-          rgba(94, 238, 118, 1) 50%,
-          rgba(62, 228, 255, 1) 100%
-        ),
-        url("background-mono.png");
-      background-size: cover;
-      background-position: center;
-      background-blend-mode: multiply;
+<style>
+  .bg-img {
+    background: linear-gradient(
+        45deg,
+        rgba(249, 159, 69, 1) 0%,
+        rgba(94, 238, 118, 1) 50%,
+        rgba(62, 228, 255, 1) 100%
+      ),
+      url("background-mono.png");
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: multiply;
+  }
+
+  .title {
+    margin-right: 0rem;
+    margin-left: 0rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+
+    h1 {
+      margin-bottom: 0;
+      line-height: 1;
+      word-spacing: 100vw;
     }
 
+    h1.top {
+      font-size: 7vw;
+    }
+    h1.bottom {
+      font-size: 17vw;
+      text-align: right;
+    }
+  }
+
+  @media only screen and (min-width: 640px) {
     .title {
-      margin-right: 0rem;
-      margin-left: 0rem;
-      padding-left: 2rem;
-      padding-right: 2rem;
+      margin-right: 3rem;
+      margin-left: 1.5rem;
+      padding-left: 0rem;
+      padding-right: 0rem;
+
+      transform: rotate(-6deg);
+      width: 26rem;
 
       h1 {
         margin-bottom: 0;
         line-height: 1;
-        word-spacing: 100vw;
       }
 
       h1.top {
-        font-size: 7vw;
+        font-size: 3.5rem;
       }
       h1.bottom {
-        font-size: 17vw;
-        text-align: right;
+        font-size: 6.5rem;
       }
     }
-
-    @media only screen and (min-width: 640px) {
-      .title {
-        margin-right: 3rem;
-        margin-left: 1.5rem;
-        padding-left: 0rem;
-        padding-right: 0rem;
-
-        transform: rotate(-6deg);
-        width: 26rem;
-
-        h1 {
-          margin-bottom: 0;
-          line-height: 1;
-        }
-
-        h1.top {
-          font-size: 3.5rem;
-        }
-        h1.bottom {
-          font-size: 6.5rem;
-        }
-      }
-    }
-  </style>
-</Default>
+  }
+</style>

@@ -7,21 +7,13 @@ import type { ImageMetadata } from "astro";
 import "@styles/global.css";
 import { Image } from "astro:assets";
 
+import { postFilter } from "@components/util/AnouncementGlob.ts";
+
 const images = import.meta.glob<{ default: ImageMetadata }>(
   "src/assets/images/*"
 );
-const unfilteredPosts = await Astro.glob("./*.md");
 
-unfilteredPosts.sort((a, b) => {
-  return (
-    new Date(b.frontmatter.date).getTime() -
-    new Date(a.frontmatter.date).getTime()
-  );
-});
-
-const posts = unfilteredPosts.filter((post) => {
-  return !post.frontmatter.hidden;
-});
+const posts = postFilter(await Astro.glob("./*.md"));
 
 function getRandomInt(max: number) {
   return Math.floor(Math.random() * max) + 1;
