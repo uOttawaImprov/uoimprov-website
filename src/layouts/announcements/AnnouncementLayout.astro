@@ -1,0 +1,49 @@
+---
+import Default from "@layouts/Default.astro";
+import Title from "@layouts/Title.astro";
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import "@styles/markdown.css";
+import type { AstroComponentFactory } from "astro/runtime/server/index.js";
+
+import Basic from "./Basic.astro";
+import TheaterMixer from "./TheaterMixer.astro";
+
+const { frontmatter } = Astro.props;
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "src/assets/images/*"
+);
+
+const layouts: Record<string, AstroComponentFactory> = {
+  Basic,
+  TheaterMixer,
+};
+
+const Wrapper = layouts[frontmatter.wrapper];
+---
+
+<Default pageTitle={"uOImprov | " + frontmatter.title}>
+  <div class="min-h-screen flex flex-col items-center">
+    <Title>
+      <div
+        class="flex flex-col sm:flex-row justify-center items-center sm:max-w-4xl"
+      >
+        <Image
+          src={images[frontmatter.img]()}
+          alt={frontmatter.title}
+          class="rounded-lg flex-wrap w-5/6 sm:w-60 sm:mr-4 mb-3 sm:mb-0"
+        />
+        <div>
+          <h2 class="bowlby-one-regular text-base">Announcements &gt</h2>
+          <h1 class="bowlby-one-regular text-2xl sm:text-3xl">
+            {frontmatter.title}
+          </h1>
+          <p>{frontmatter.date}</p>
+        </div>
+      </div>
+    </Title>
+    <Wrapper>
+      <slot />
+    </Wrapper>
+  </div>
+</Default>

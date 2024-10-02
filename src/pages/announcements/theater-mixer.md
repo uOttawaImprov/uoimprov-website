@@ -3,7 +3,8 @@ title: uOttawa x Carleton Theater Mixer
 date: "2024-10-1"
 desc: We are doing a mixer event with many other uOttawa and Carleton theater clubs!
 img: "/src/assets/images/mixer.jpg"
-layout: "@layouts/announcements/TheaterMixer.astro"
+layout: "@layouts/announcements/AnnouncementLayout.astro"
+wrapper: TheaterMixer
 hidden: false
 ---
 

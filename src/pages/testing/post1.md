@@ -3,7 +3,8 @@ title: Launch of this website! And more text! wowowo
 date: "2024-07-07"
 desc: Putting this as an announcement on the website seems redundant...
 img: /src/assets/images/the-website.png
-layout: "@layouts/announcements/Basic.astro"
+layout: "@layouts/announcements/AnnouncementLayout.astro"
+wrapper: Basic
 hidden: true
 ---
 
