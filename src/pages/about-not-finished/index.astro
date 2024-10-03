@@ -1,0 +1,35 @@
+---
+import Default from "@layouts/Default.astro";
+import Title from "@layouts/Title.astro";
+import Bubble from "@components/Bubble.astro";
+
+import { socials } from "@src/consts.ts";
+
+import "@styles/global.css";
+---
+
+<Default pageTitle="uOImprov | About">
+  <div class="flex flex-col min-h-screen">
+    <Title>
+      <h1 class="bowlby-one-regular text-3xl animate-loadIn">About</h1>
+    </Title>
+
+    <div class="px-10">
+      <h1 class="bowlby-one-regular text-3xl sm:mt-10 sm:ml-5">Our Execs...</h1>
+
+      <div></div>
+    </div>
+  </div>
+</Default>
+
+<style>
+  a {
+    color: rgb(45, 107, 240);
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: rgb(45, 107, 240);
+    text-decoration: underline;
+  }
+</style>
