@@ -1,8 +1,8 @@
-import type { MarkdownInstance } from "astro";
+import type { MDXInstance } from "astro";
 
 export const postFilter = (
-  post: MarkdownInstance<Record<string, any>>[]
-): MarkdownInstance<Record<string, any>>[] => {
+  post: MDXInstance<Record<string, any>>[]
+): MDXInstance<Record<string, any>>[] => {
   return post
     .sort((a, b) => {
       return (

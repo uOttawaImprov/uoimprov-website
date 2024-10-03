@@ -11,7 +11,7 @@ import "@styles/global.css";
 const images = import.meta.glob<{ default: ImageMetadata }>(
   "src/assets/images/*"
 );
-const recentPost = postFilter(await Astro.glob("./announcements/*.md"))[0];
+const recentPost = postFilter(await Astro.glob("./announcements/*.mdx"))[0];
 ---
 
 <Default pageTitle="uOttawa Improv Club">

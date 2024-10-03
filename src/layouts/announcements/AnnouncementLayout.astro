@@ -7,19 +7,13 @@ import "@styles/markdown.css";
 import type { AstroComponentFactory } from "astro/runtime/server/index.js";
 
 import Basic from "./Basic.astro";
-import TheaterMixer from "./TheaterMixer.astro";
 
 const { frontmatter } = Astro.props;
 const images = import.meta.glob<{ default: ImageMetadata }>(
   "src/assets/images/*"
 );
 
-const layouts: Record<string, AstroComponentFactory> = {
-  Basic,
-  TheaterMixer,
-};
-
-const Wrapper = layouts[frontmatter.wrapper];
+const Wrapper = frontmatter?.customLayout ? "div" : Basic;
 ---
 
 <Default pageTitle={"uOImprov | " + frontmatter.title}>

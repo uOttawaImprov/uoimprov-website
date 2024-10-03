@@ -13,7 +13,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
   "src/assets/images/*"
 );
 
-const posts = postFilter(await Astro.glob("./*.md"));
+const posts = postFilter(await Astro.glob("./*.mdx"));
 
 function getRandomInt(max: number) {
   return Math.floor(Math.random() * max) + 1;
