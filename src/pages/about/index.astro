@@ -8,6 +8,49 @@ import "@styles/global.css";
 const images = import.meta.glob<{ default: ImageMetadata }>(
   "src/assets/images/exec-photos/*"
 );
+
+const execs = [
+  {
+    name: "Thea Tull",
+    image: "/src/assets/images/exec-photos/thea.jpg",
+    pronouns: "she/her",
+    title: "Co-President of Jam Affairs",
+    desc: 'Been in the improv game for too many years to count (I cannot count higher then 2). Known around the club as "one of the ( ... ) improvisors of our generation". I fill my free time with slaughtering cattle and making paper boats. I have a very hard time sleeping at night',
+    border: "rounded-lg border-8 border-dashed border-blue-200",
+  },
+  {
+    name: "Sam Stack",
+    image: "/src/assets/images/exec-photos/sams.jpg",
+    pronouns: "she/her",
+    title: "Co-President Special Events Coordinator",
+    desc: "I watch birds back",
+    border: "border-8 border-dotted border-green-400",
+  },
+  {
+    name: "Daniel Braun",
+    image: "/src/assets/images/exec-photos/daniel.jpg",
+    pronouns: "he/they",
+    title: "Vice-President of Social Affairs and Equity",
+    desc: "I have legally bound my soul to the improv club and now I can't stop! Professional artist, non-professional hostage to the club.",
+    border: "border-8 border-dotted border-green-400",
+  },
+  {
+    name: "Ella Campbell",
+    image: "/src/assets/images/exec-photos/ella.jpg",
+    pronouns: "she/her",
+    title: "Vice-President of Promotion and Outreach",
+    desc: "I like to stay active by playing a variety of sports and going rock climbing, I also like to play games and go on walks and get sweet treats (who doesn't). I get through my degree with lots of noodles in my bowl and lots of extracurriculars to diffuse the stress. Natural habitat: at home with a cat eating pho watching a show.",
+    border: "rounded-lg border-8 border-double border-pink-200",
+  },
+  {
+    name: "Sam Mather",
+    image: "/src/assets/images/exec-photos/samm.jpg",
+    pronouns: "him",
+    title: "Vice-President of Finance",
+    desc: "I've never meet someone named Brett",
+    border: "rounded-lg border-8 border-dashed border-orange-200",
+  },
+];
 ---
 
 <Default pageTitle="uOImprov | About">
@@ -27,98 +70,26 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
       <div
         class="flex flex-wrap justify-center my-5 px-5 sm:px-0 gap-4 sm:gap-8"
       >
-        <Bubble outerClass="sm:w-96 shadow-lg border-2">
-          <Image
-            src={images["/src/assets/images/exec-photos/thea.jpg"]()}
-            alt="Image of Thea Tull"
-            class="rounded-lg border-8 border-dashed border-blue-200"
-          />
-          <div class="flex flex-row items-end mt-4">
-            <h2 class="bowlby-one-regular text-2xl">Thea Tull</h2>
-            <p class="font-normal text-gray-400 mb-1 ml-2">she/her</p>
-          </div>
-          <i class="font-normal mt-1">
-            Been in the improv game for too many years to count (I cannot count
-            higher then 2). Known around the club as "one of the ( ... )
-            improvisors of our generation". I fill my free time with
-            slaughtering cattle and making paper boats. I have a very hard time
-            sleeping at night
-          </i>
-        </Bubble>
-
-        <Bubble outerClass="sm:w-96 shadow-lg border-2">
-          <Image
-            src={images["/src/assets/images/exec-photos/sams.jpg"]()}
-            alt="Image of Thea Tull"
-            class="rounded-lg border-8 border-teal-300"
-          />
-          <div class="flex flex-row items-end mt-4">
-            <h2 class="bowlby-one-regular text-2xl">Sam Stack</h2>
-            <p class="font-normal text-gray-400 mb-1 ml-2">she/her</p>
-          </div>
-          <i class="font-normal mt-1"> I watch birds back </i>
-        </Bubble>
-
-        <Bubble outerClass="sm:w-96 shadow-lg border-2">
-          <Image
-            src={images["/src/assets/images/exec-photos/daniel.jpg"]()}
-            alt="Image of Thea Tull"
-            class="border-8 border-dotted border-green-400"
-          />
-          <div class="flex flex-row items-end mt-4">
-            <h2 class="bowlby-one-regular text-2xl">Daniel Braun</h2>
-            <p class="font-normal text-gray-400 mb-1 ml-2">he/they</p>
-          </div>
-          <i class="font-normal mt-1">
-            I have legally bound my soul to the improv club and now I can't
-            stop! Professional artist, non-professional hostage to the club.
-          </i>
-        </Bubble>
-
-        <Bubble outerClass="sm:w-96 shadow-lg border-2">
-          <Image
-            src={images["/src/assets/images/exec-photos/ella.jpg"]()}
-            alt="Image of Thea Tull"
-            class="rounded-lg border-8 border-double border-pink-200"
-          />
-          <div class="flex flex-row items-end mt-4">
-            <h2 class="bowlby-one-regular text-2xl">Ella Campbell</h2>
-            <p class="font-normal text-gray-400 mb-1 ml-2">she/her</p>
-          </div>
-          <i class="font-normal mt-1"
-            >I like to stay active by playing a variety of sports and going rock
-            climbing, I also like to play games and go on walks and get sweet
-            treats (who doesn't). I get through my degree with lots of noodles
-            in my bowl and lots of extracurriculars to diffuse the stress.
-            Natural habitat: at home with a cat eating pho watching a show.</i
-          >
-        </Bubble>
-
-        <Bubble outerClass="sm:w-96 shadow-lg border-2">
-          <Image
-            src={images["/src/assets/images/exec-photos/samm.jpg"]()}
-            alt="Image of Thea Tull"
-            class="rounded-lg border-8 border-dashed border-orange-200"
-          />
-          <div class="flex flex-row items-end mt-4">
-            <h2 class="bowlby-one-regular text-2xl">Sam Mather</h2>
-            <p class="font-normal text-gray-400 mb-1 ml-2">him</p>
-          </div>
-          <i class="font-normal mt-1">I've never meet someone named Brett</i>
-        </Bubble>
+        {
+          execs.map((exec) => (
+            <Bubble outerClass="sm:w-96 shadow-lg border-2">
+              <Image
+                src={images[exec.image]()}
+                alt={"Image of " + exec.name}
+                class={exec.border}
+              />
+              <div class="flex flex-row items-end mt-4">
+                <h2 class="bowlby-one-regular text-2xl">{exec.name}</h2>
+                <p class="font-normal text-gray-400 mb-[.15rem] ml-2">
+                  {exec.pronouns}
+                </p>
+              </div>
+              <h3 class="text-lg font-semibold mb-2">{exec.title}</h3>
+              <i class="font-normal mt-1">{exec.desc}</i>
+            </Bubble>
+          ))
+        }
       </div>
     </div>
   </div>
 </Default>
-
-<style>
-  a {
-    color: rgb(45, 107, 240);
-    text-decoration: none;
-  }
-
-  a:hover {
-    color: rgb(45, 107, 240);
-    text-decoration: underline;
-  }
-</style>
