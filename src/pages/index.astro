@@ -77,14 +77,14 @@ const recentPost = postFilter(await Astro.glob("./announcements/*.mdx"))[0];
           <Image
             src={images[recentPost.frontmatter.img]()}
             alt={recentPost.frontmatter.title}
-            class="rounded-lg flex-wrap h-24 w-auto mr-2"
+            class="rounded-lg flex-wrap h-24 w-auto mr-2 sm:mr-4"
           />
-          <div class="flex flex-col justify-between sm:justify-start">
+          <div class="flex flex-col">
             <h2 class="bowlby-one-regular text-xl">
               {recentPost.frontmatter.title}
             </h2>
-            <p class="font-normal text-sm ml-0 sm:ml-4">
-              {recentPost.frontmatter.date}
+            <p class="font-normal text-sm">
+              Posted on {recentPost.frontmatter.date}
             </p>
             <p class="font-medium hidden sm:block mt-1">
               {recentPost.frontmatter.desc}

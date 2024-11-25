@@ -1,4 +1,10 @@
 import type { MDXInstance } from "astro";
+import dayjs from "dayjs";
+import customParseFormat from "dayjs/plugin/customParseFormat";
+
+dayjs.extend(customParseFormat);
+
+const format = "MMMM D, YYYY";
 
 export const postFilter = (
   post: MDXInstance<Record<string, any>>[]
@@ -6,8 +12,7 @@ export const postFilter = (
   return post
     .sort((a, b) => {
       return (
-        new Date(b.frontmatter.date).getTime() -
-        new Date(a.frontmatter.date).getTime()
+        +dayjs(b.frontmatter.date, format) - +dayjs(a.frontmatter.date, format)
       );
     })
     .filter((post) => {

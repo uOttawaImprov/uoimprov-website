@@ -20,10 +20,10 @@ function getRandomInt(max: number) {
 }
 ---
 
-<Default pageTitle="uOImprov | Announcments">
+<Default pageTitle="uOImprov | Announcements">
   <div class="flex flex-col min-h-screen">
     <Title>
-      <h1 class="bowlby-one-regular text-3xl animate-loadIn">Announcments</h1>
+      <h1 class="bowlby-one-regular text-3xl animate-loadIn">Announcements</h1>
     </Title>
 
     {
@@ -37,14 +37,14 @@ function getRandomInt(max: number) {
             <Image
               src={images[post.frontmatter.img]()}
               alt={post.frontmatter.title}
-              class="rounded-lg flex-wrap h-24 w-auto mr-2"
+              class="rounded-lg flex-wrap h-24 w-auto mr-2 sm:mr-4"
             />
-            <div class="flex flex-col justify-between sm:justify-start">
+            <div class="flex flex-col">
               <h2 class="bowlby-one-regular text-xl">
                 {post.frontmatter.title}
               </h2>
-              <p class="font-normal text-sm ml-0 sm:ml-4">
-                {post.frontmatter.date}
+              <p class="font-normal text-sm ml-0">
+                Posted on {post.frontmatter.date}
               </p>
               <p class="font-medium hidden sm:block mt-1">
                 {post.frontmatter.desc}
