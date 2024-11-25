@@ -14,7 +14,7 @@ const { outerClass = "", isButton = false, link = "" } = Astro.props;
       <a href={link}>
         <div
           class:list={[
-            "border-gradient p-4 transition duration-200 ease-in-out hover:-translate-y-1 shadow-md hover:shadow-lg hover:bg-cyan-50",
+            "rounded-[30px] p-4 transition duration-200 ease-in-out hover:-translate-y-1 shadow-md hover:shadow-lg hover:bg-cyan-50",
             outerClass,
           ]}
         >
@@ -22,20 +22,18 @@ const { outerClass = "", isButton = false, link = "" } = Astro.props;
         </div>
       </a>
     ) : (
-      <div class:list={["border-gradient p-4 shadow-md", outerClass]}>
+      <div class:list={["rounded-[30px] p-4 shadow-md", outerClass]}>
         <slot />
       </div>
     )
   }
   <style>
-    .border-gradient {
+    .var-1 {
       border: double 0.5em transparent;
       border-radius: 30px;
       background-origin: border-box;
       background-clip: padding-box, border-box;
-    }
 
-    .var-1 {
       background-image: linear-gradient(white, white),
         linear-gradient(
           135deg,
@@ -45,6 +43,11 @@ const { outerClass = "", isButton = false, link = "" } = Astro.props;
     }
 
     .var-2 {
+      border: double 0.5em transparent;
+      border-radius: 30px;
+      background-origin: border-box;
+      background-clip: padding-box, border-box;
+
       background-image: linear-gradient(white, white),
         linear-gradient(
           135deg,

@@ -2,10 +2,12 @@
 import Default from "@layouts/Default.astro";
 import Title from "@layouts/Title.astro";
 import Bubble from "@components/Bubble.astro";
-
-import { socials } from "@src/consts.ts";
-
+import Image from "astro/components/Image.astro";
 import "@styles/global.css";
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "src/assets/images/exec-photos/*"
+);
 ---
 
 <Default pageTitle="uOImprov | About">
@@ -17,7 +19,74 @@ import "@styles/global.css";
     <div class="px-10">
       <h1 class="bowlby-one-regular text-3xl sm:mt-10 sm:ml-5">Our Execs...</h1>
 
-      <div></div>
+      <div class="flex flex-row gap-10 justify-center">
+        <Bubble outerClass="sm:w-96 shadow-lg border-2">
+          <Image
+            src={images["/src/assets/images/exec-photos/thea.jpg"]()}
+            alt="Image of Thea Tull"
+            class="rounded-lg border-8 border-dashed border-blue-200"
+          />
+          <div class="flex flex-row items-end mt-4">
+            <h2 class="bowlby-one-regular text-2xl">Thea Tull</h2>
+            <p class="font-normal text-gray-400 mb-1 ml-2">she/her</p>
+          </div>
+          <p class="font-normal"></p>
+        </Bubble>
+
+        <Bubble outerClass="sm:w-96 shadow-lg border-2">
+          <Image
+            src={images["/src/assets/images/exec-photos/sams.jpg"]()}
+            alt="Image of Thea Tull"
+            class="rounded-lg border-8 border-teal-300"
+          />
+          <div class="flex flex-row items-end mt-4">
+            <h2 class="bowlby-one-regular text-2xl">Sam Stack</h2>
+            <p class="font-normal text-gray-400 mb-1 ml-2">she/her</p>
+          </div>
+          <p class="font-normal"></p>
+        </Bubble>
+
+        <Bubble outerClass="sm:w-96 shadow-lg border-2">
+          <Image
+            src={images["/src/assets/images/exec-photos/daniel.jpg"]()}
+            alt="Image of Thea Tull"
+            class="border-8 border-dotted border-green-400"
+          />
+          <div class="flex flex-row items-end mt-4">
+            <h2 class="bowlby-one-regular text-2xl">Daniel Braun</h2>
+            <p class="font-normal text-gray-400 mb-1 ml-2">he/they</p>
+          </div>
+          <p class="font-normal"></p>
+        </Bubble>
+      </div>
+
+      <div class="flex flex-row gap-10 mt-10 justify-center">
+        <Bubble outerClass="sm:w-96 shadow-lg border-2">
+          <Image
+            src={images["/src/assets/images/exec-photos/ella.jpg"]()}
+            alt="Image of Thea Tull"
+            class="rounded-lg border-8 border-double border-pink-200"
+          />
+          <div class="flex flex-row items-end mt-4">
+            <h2 class="bowlby-one-regular text-2xl">Ella Campbell</h2>
+            <p class="font-normal text-gray-400 mb-1 ml-2">she/her</p>
+          </div>
+          <p class="font-normal"></p>
+        </Bubble>
+
+        <Bubble outerClass="sm:w-96 shadow-lg border-2">
+          <Image
+            src={images["/src/assets/images/exec-photos/samm.jpg"]()}
+            alt="Image of Thea Tull"
+            class="rounded-lg border-8 border-dashed border-orange-200"
+          />
+          <div class="flex flex-row items-end mt-4">
+            <h2 class="bowlby-one-regular text-2xl">Sam Mather</h2>
+            <p class="font-normal text-gray-400 mb-1 ml-2">him</p>
+          </div>
+          <p class="font-normal"></p>
+        </Bubble>
+      </div>
     </div>
   </div>
 </Default>
