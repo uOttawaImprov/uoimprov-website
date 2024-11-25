@@ -17,12 +17,16 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
     </Title>
 
     <div class="px-5">
-      <h1 class="bowlby-one-regular text-3xl mt-6 sm:w-full sm:text-center">
+      <h1
+        class="bowlby-one-regular text-3xl mt-6 mb-1 sm:w-full sm:text-center"
+      >
         The Exec Team
       </h1>
       <hr class="h-[6px] big-bg sm:mx-10" />
 
-      <div class="flex flex-wrap justify-center gap-10 my-4">
+      <div
+        class="flex flex-wrap justify-center my-5 px-5 sm:px-0 gap-4 sm:gap-8"
+      >
         <Bubble outerClass="sm:w-96 shadow-lg border-2">
           <Image
             src={images["/src/assets/images/exec-photos/thea.jpg"]()}
@@ -33,7 +37,13 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
             <h2 class="bowlby-one-regular text-2xl">Thea Tull</h2>
             <p class="font-normal text-gray-400 mb-1 ml-2">she/her</p>
           </div>
-          <p class="font-normal"></p>
+          <i class="font-normal mt-1">
+            Been in the improv game for too many years to count (I cannot count
+            higher then 2). Known around the club as "one of the ( ... )
+            improvisors of our generation". I fill my free time with
+            slaughtering cattle and making paper boats. I have a very hard time
+            sleeping at night
+          </i>
         </Bubble>
 
         <Bubble outerClass="sm:w-96 shadow-lg border-2">
@@ -46,7 +56,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
             <h2 class="bowlby-one-regular text-2xl">Sam Stack</h2>
             <p class="font-normal text-gray-400 mb-1 ml-2">she/her</p>
           </div>
-          <p class="font-normal"></p>
+          <i class="font-normal mt-1"> I watch birds back </i>
         </Bubble>
 
         <Bubble outerClass="sm:w-96 shadow-lg border-2">
@@ -59,7 +69,10 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
             <h2 class="bowlby-one-regular text-2xl">Daniel Braun</h2>
             <p class="font-normal text-gray-400 mb-1 ml-2">he/they</p>
           </div>
-          <p class="font-normal"></p>
+          <i class="font-normal mt-1">
+            I have legally bound my soul to the improv club and now I can't
+            stop! Professional artist, non-professional hostage to the club.
+          </i>
         </Bubble>
 
         <Bubble outerClass="sm:w-96 shadow-lg border-2">
@@ -72,7 +85,13 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
             <h2 class="bowlby-one-regular text-2xl">Ella Campbell</h2>
             <p class="font-normal text-gray-400 mb-1 ml-2">she/her</p>
           </div>
-          <p class="font-normal"></p>
+          <i class="font-normal mt-1"
+            >I like to stay active by playing a variety of sports and going rock
+            climbing, I also like to play games and go on walks and get sweet
+            treats (who doesn't). I get through my degree with lots of noodles
+            in my bowl and lots of extracurriculars to diffuse the stress.
+            Natural habitat: at home with a cat eating pho watching a show.</i
+          >
         </Bubble>
 
         <Bubble outerClass="sm:w-96 shadow-lg border-2">
@@ -85,7 +104,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
             <h2 class="bowlby-one-regular text-2xl">Sam Mather</h2>
             <p class="font-normal text-gray-400 mb-1 ml-2">him</p>
           </div>
-          <p class="font-normal"></p>
+          <i class="font-normal mt-1">I've never meet someone named Brett</i>
         </Bubble>
       </div>
     </div>
