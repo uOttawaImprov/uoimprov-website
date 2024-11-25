@@ -16,10 +16,13 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
       <h1 class="bowlby-one-regular text-3xl animate-loadIn">About</h1>
     </Title>
 
-    <div class="px-10">
-      <h1 class="bowlby-one-regular text-3xl sm:mt-10 sm:ml-5">Our Execs...</h1>
+    <div class="px-5">
+      <h1 class="bowlby-one-regular text-3xl mt-6 sm:w-full sm:text-center">
+        The Exec Team
+      </h1>
+      <hr class="h-[6px] big-bg sm:mx-10" />
 
-      <div class="flex flex-row gap-10 justify-center">
+      <div class="flex flex-wrap justify-center gap-10 my-4">
         <Bubble outerClass="sm:w-96 shadow-lg border-2">
           <Image
             src={images["/src/assets/images/exec-photos/thea.jpg"]()}
@@ -58,9 +61,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
           </div>
           <p class="font-normal"></p>
         </Bubble>
-      </div>
 
-      <div class="flex flex-row gap-10 mt-10 justify-center">
         <Bubble outerClass="sm:w-96 shadow-lg border-2">
           <Image
             src={images["/src/assets/images/exec-photos/ella.jpg"]()}
